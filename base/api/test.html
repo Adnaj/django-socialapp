@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <h3>Good morning</h3>
+    <h3 id="room-name" >
+
+    </h3>
+    
+</body>
+<script>
+    let getrooms = async () =>{
+        let responce = await fetch('http://127.0.0.1:8000/api/rooms')
+        rooms = await responce.json()
+        console.log("response:",rooms)
+        for (let i=0; rooms.length > i; i++){
+            room = rooms[i]
+            let row = `<div> <h3>${room.name}</h3> </div>`
+            text.innerHTML += row
+        }
+    }
+    getrooms()
+    text =document.getElementById('room-name')
+
+</script>
+</html>
